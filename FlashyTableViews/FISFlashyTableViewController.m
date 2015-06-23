@@ -7,7 +7,7 @@
 //
 
 #import "FISFlashyTableViewController.h"
-#import <SWTableViewCell.h>
+#import <SWTableViewCell/SWTableViewCell.h>
 
 
 @interface FISFlashyTableViewController ()
@@ -31,6 +31,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -43,20 +44,34 @@
     return 10;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"swCellReuseID";
-    
-    SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"swCellReuseID"
                                                                                forIndexPath:indexPath];
-    
+
     cell.leftUtilityButtons = [self leftButtons];
     cell.rightUtilityButtons = [self rightButtons];
-//    cell.delegate = self;
+    cell.delegate = self;
     
-    cell.textLabel.text = @"Some Text";
-    cell.imageView.image = [UIImage imageNamed:@"MyAwesomeTableCellImage"];
+    cell.textLabel.text = @"Hello World";
+//    cell.imageView.image = [UIImage imageNamed:@"MyAwesomeTableCellImage"];
 //    [cell setCellHeight:cell.frame.size.height];
     return cell;
+}
+
+-(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index
+{
+    NSLog(@"Left Utility Button Rocks!");
+}
+
+-(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index
+{
+    NSLog(@"Right Utility Button Rocks! At index %ld", index);
+}
+
+-(BOOL)swipeableTableViewCellShouldHideUtilityButtonsOnSwipe:(SWTableViewCell *)cell
+{
+    return YES;
 }
 
 - (NSArray *)rightButtons

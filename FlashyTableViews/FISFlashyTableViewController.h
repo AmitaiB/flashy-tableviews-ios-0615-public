@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SWTableViewCell/SWTableViewCell.h>
 
-@interface FISFlashyTableViewController : UITableViewController
+@interface FISFlashyTableViewController : UITableViewController <SWTableViewCellDelegate>
 
 @end
