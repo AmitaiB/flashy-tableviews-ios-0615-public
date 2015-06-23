@@ -8,6 +8,7 @@
 
 #import "FISFlashyTableViewController.h"
 #import <SWTableViewCell/SWTableViewCell.h>
+#import <APParallaxHeader.h>
 
 
 @interface FISFlashyTableViewController ()
@@ -106,6 +107,7 @@
     
     return leftUtilityButtons;
 }
+
 
 /*
 // Override to support conditional editing of the table view.
