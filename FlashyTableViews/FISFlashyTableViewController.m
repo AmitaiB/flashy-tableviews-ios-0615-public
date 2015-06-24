@@ -8,7 +8,7 @@
 
 #import "FISFlashyTableViewController.h"
 #import <SWTableViewCell/SWTableViewCell.h>
-#import <APParallaxHeader.h>
+#import <UIScrollView+APParallaxHeader.h>
 
 
 @interface FISFlashyTableViewController ()
@@ -25,6 +25,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.tableView addParallaxWithImage:[UIImage imageNamed:@"powderToastMan"] andHeight:160];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,7 +44,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 10;
+    return 30;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
